@@ -1,80 +1,50 @@
 FORMAT: 1A
 HOST: http://polls.apiblueprint.org/
 
-# gayathrirao 
+# Benchmark API
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Benchmark API Blueprint definition
 
-## Questions Collection [/questions]
+## Get Candidate By Email [/candidate/email/{email}]
 
-### List All Questions [GET]
+Get Candidate data by Email
 
-+ Response 200 (application/json)
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
++ Parameters
 
-### Create a New Question [POST]
+    + email (String, required)
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+       Email by which we need to get the candidate data
+
+### GetCandidateByEmail[GET]
 
 + Request (application/json)
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
++ Response 200 (application/json)
 
-+ Response 201 (application/json)
 
-    + Headers
+    + Attributes(Candidate)
+    
+    
 
-            Location: /questions/2
+# Data Structures
 
-    + Body
+## Candidate (object)
+- firstname: `Gayathri` (string,required)
+    first name of the candidate as present in records
+    
+- lastname: `Rao` (string,required)
+- emailid: gaya.r@gmail.com (string,required)
+- experience (array[Skillset],optional)
+- interests (array[Skillset],optional)
+- crossskills (array[Skillset],optional)
+- Roles (array[Role],optional)
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
+##Skillset(object)
+- SkillType: `domain` (string,required)
+- SkillName: `Banking` (string,required)
+- years: 12 (number,optional)
+
+##Role
+- Rolename: `SAL1` (string,required)
+- years: 10 (number,required)
