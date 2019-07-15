@@ -1,0 +1,50 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Benchmark API
+
+Benchmark API Blueprint definition
+
+## Get Candidate By Email [/candidate/email/{email}]
+
+Get Candidate data by Email
+
+
++ Parameters
+
+    + email (String, required)
+
+       Email by which we need to get the candidate data
+
+### GetCandidateByEmail[GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+
+    + Attributes(Candidate)
+    
+    
+
+# Data Structures
+
+## Candidate (object)
+- firstname: `Gayathri` (string,required)
+    first name of the candidate as present in records
+    
+- lastname: `Rao` (string,required)
+- emailid: gaya.r@gmail.com (string,required)
+- experience (array[Skillset],optional)
+- interests (array[Skillset],optional)
+- crossskills (array[Skillset],optional)
+- Roles (array[Role],optional)
+
+##Skillset(object)
+- SkillType: `domain` (string,required)
+- SkillName: `Banking` (string,required)
+- years: 12 (number,optional)
+
+##Role
+- Rolename: `SAL1` (string,required)
+- years: 10 (number,required)
