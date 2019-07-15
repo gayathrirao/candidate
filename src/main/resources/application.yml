@@ -1,11 +1,6 @@
 server:
   port: 8092
-management:
-  endpoint:
-    health:
-      enabled: true
-  server:
-    port: 8098
+
 spring:
     data:
       mongodb:
@@ -18,3 +13,4 @@ logging:
   level:
     org.springframework.data.mongodb.core.MongoTemplate: DEBUG
     org.springframework.data.mongodb.repository.Query: DEBUG
+
